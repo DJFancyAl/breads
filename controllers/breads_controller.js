@@ -5,6 +5,7 @@ const breads = express.Router()
 breads.get('/', (req, res) => {
   res.render('index',
   {
+    title: 'Breads Page',
     breads: Bread
   }
   )
