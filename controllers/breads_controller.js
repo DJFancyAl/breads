@@ -13,7 +13,9 @@ breads.get('/', (req, res) => {
 
 // SHOW
 breads.get('/:arrayIndex', (req, res) => {
-    res.send(Bread[req.params.arrayIndex])
+    // res.send()
+    let bread = Bread[req.params.arrayIndex]
+    res.render('bread', bread);
   })
   
 
