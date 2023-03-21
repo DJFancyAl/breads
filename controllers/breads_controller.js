@@ -13,9 +13,13 @@ breads.get('/', (req, res) => {
 
 // SHOW
 breads.get('/:arrayIndex', (req, res) => {
-    let bread = Bread[req.params.arrayIndex]
-    res.render('bread', bread);
-  })
+  const bread = Bread[req.params.arrayIndex]
+  if (bread){
+    res.render('show', {bread: bread})
+  } else {
+    res.status(404).send("404 - Page not found.")
+  }
+})
   
 
 module.exports = breads
