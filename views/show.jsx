@@ -2,7 +2,6 @@ const React = require('react')
 const Default = require('./layouts/Default')
 
 function Show ( {bread} ) {
-
     return (
       <Default title={bread.name + " Details"}>
         <h2>{bread.name} Bread</h2>

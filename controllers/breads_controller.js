@@ -17,7 +17,7 @@ breads.get('/:arrayIndex', (req, res) => {
   if (bread){
     res.render('show', {bread: bread})
   } else {
-    res.status(404).send("404 - Page not found.")
+    res.status(404).render('404')
   }
 })
   

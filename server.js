@@ -22,7 +22,7 @@ app.use('/breads', breadsController)
 
 // Wildcard Route
 app.get('*', (req,res) => {
-  res.status(404).send('404 - This page does not exist.');
+  res.status(404).render('404');
 })
 
 // LISTEN
