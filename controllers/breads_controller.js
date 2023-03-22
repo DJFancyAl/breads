@@ -13,13 +13,21 @@ breads.get('/', (req, res) => {
 
 // SHOW
 breads.get('/:arrayIndex', (req, res) => {
-  const bread = Bread[req.params.arrayIndex]
+  const id = req.params.arrayIndex
+  const bread = Bread[id]
   if (bread){
-    res.render('show', {bread: bread})
+    res.render('show', {bread: bread, index: id})
   } else {
     res.status(404).render('404')
   }
 })
+
+// DELETE
+breads.delete('/:indexArray', (req, res) => {
+  Bread.splice(req.params.indexArray, 1)
+  res.status(303).redirect('/breads')
+})
+
   
 
 module.exports = breads
