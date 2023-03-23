@@ -4,9 +4,9 @@ const Default = require('./layouts/Default')
 function Index ({title, breads}) {
     return (
       <Default title={title}>
-        <h2>Index Page</h2>
+        <h2>List of Breads:</h2>
 
-        <ul>
+        <ul className='bread-list'>
             {
                 breads.map((bread, index) => {
                     return (

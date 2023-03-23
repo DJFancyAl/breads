@@ -5,19 +5,19 @@ function Show ( {bread, index} ) {
     return (
       <Default title={bread.name + " Details"}>
         <h2>{bread.name} Bread</h2>
-        <p>{bread.name} bread 
+        <h5>{bread.name} bread 
         {bread.hasGluten ?
         <span> has gluten.</span> :
         <span> does not have gluten.</span>}
-        </p>
+        </h5>
         
         <img src={bread.image} alt={bread.name} />
 
-        <div style={{display: "flex"}}>
-          <a href={`/breads/${index}/edit`}><button>Edit</button></a>
+        <div>
+          <a href={`/breads/${index}/edit`}><button className='editButton'>Edit</button></a>
 
-          <form action={`/breads/${index}?_method=DELETE`} method="POST">
-            <input type='submit' value="DELETE"/>
+          <form className='deleteButton' action={`/breads/${index}?_method=DELETE`} method="POST">
+            <input type='submit' value="DELETE" className='deleteButton' />
           </form>
         </div>
 
