@@ -2,6 +2,7 @@ const express = require('express')
 const Bread = require('../models/breads')
 const breads = express.Router()
 
+
 // INDEX
 breads.get('/', (req, res) => {
   res.render('index',
@@ -11,6 +12,7 @@ breads.get('/', (req, res) => {
   }
   )
 })
+
 
 // NEW
 breads.get('/new', (req, res) => {
@@ -52,5 +54,4 @@ breads.delete('/:indexArray', (req, res) => {
 })
 
   
-
 module.exports = breads
