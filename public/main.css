@@ -1,10 +1,85 @@
+:root {
+  --brown: #C58E4D;
+  --darkbrown: #4B3414;
+  --tan: #E7DFAE;
+  --green: #978D4F;
+}
+
 body {
-    background-color: floralwhite;
+    background-color: var(--tan);
+    font-family: 'Libre Baskerville', serif;
+    margin: 0;
   }
   
-  img {
-    width: 50%;
-    display: block;
-    margin: auto;
-  }
-  
+img {
+  width: 50%;
+  display: block;
+  margin: auto;
+  border: 8px double var(--green);
+}
+
+h1 a {
+  display: block;
+  background-color: var(--darkbrown);
+  color: var(--tan);
+  font-weight: bold;
+  text-decoration: none;
+  padding: 1rem;
+}
+
+h1 a:hover {
+  color: var(--brown);
+}
+
+h2 {
+  color: var(--darkbrown);
+  font-weight: bold;
+}
+
+h5 {
+  font-size: 1.4rem;
+  color: var(--green);
+  font-weight: bold;
+  text-decoration:underline;
+}
+
+.deleteButton {
+  display: inline-block;
+}
+
+.editButton {
+  display: inline-block;
+  background-color: var(--darkbrown);
+  color: var(--tan);
+  margin-right: 0.5rem;
+}
+
+.editButton:hover {
+  background-color: var(--green);
+  color: var(--darkbrown);
+}
+
+.deleteButton {
+  display: inline-block;
+}
+
+.deleteButton input{
+  background-color: var(--darkbrown);
+  color: var(--tan);
+}
+
+.deleteButton input:hover{
+  background-color: var(--green);
+  color: var(--darkbrown);
+}
+
+.bread-list li, .bread-list li a {
+  list-style: square;
+  color: var(--darkbrown);
+  text-decoration: none;
+}
+
+.bread-list li a:hover {
+  color: var(--green);
+  text-decoration: overline;
+}
