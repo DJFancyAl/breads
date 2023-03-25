@@ -4,13 +4,11 @@ const Default = require('./layouts/Default')
 function Index ({title, breads}) {
     return (
       <Default title={title}>
-        <h2>Index Page</h2>
+        <h2>List of Breads:</h2>
 
-        <div className="newButton">
-            <a href="/breads/new"><button>Add a new bread</button></a>
-        </div>
+        <a href="/breads/new"><button className="newButton">Add a new bread</button></a>
 
-        <ul>
+        <ul className='bread-list'>
             {
                 breads.map((bread, index) => {
                     return (

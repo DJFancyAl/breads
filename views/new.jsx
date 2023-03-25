@@ -32,9 +32,7 @@ function New () {
           <input type="submit"/>
         </form>
 
-        <div className="backButton">
-            <a href="/breads"><button>Go back to the index</button></a>
-        </div>
+        <a href="/breads"><button className='newButton'>Return to Bread List</button></a>
 
       </Default>
     )

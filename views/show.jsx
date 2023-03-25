@@ -13,7 +13,7 @@ function Show ( {bread, index} ) {
         
         <img src={bread.image} alt={bread.name} />
 
-        <div>
+        <div className='button-group'>
           <a href={`/breads/${index}/edit`}><button className='editButton'>Edit</button></a>
 
           <form className='deleteButton' action={`/breads/${index}?_method=DELETE`} method="POST">

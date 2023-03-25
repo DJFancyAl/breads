@@ -29,7 +29,7 @@ function edit ({bread, index}) {
             defaultChecked={bread.hasGluten}
           />
           <br />
-          <input type="submit"/>
+          <input className='submitButton' type="submit"/>
         </form>
       </Default>
     )
