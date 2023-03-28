@@ -4,6 +4,7 @@ const express = require('express')
 const app = express()
 const PORT = process.env.PORT
 const methodOverride = require('method-override')
+const mongoose = require('mongoose')
 
 
 // MIDDLEWARE
@@ -14,6 +15,9 @@ app.use(express.urlencoded({extended: true}))
 app.use(express.static('public'))
 app.use(methodOverride('_method'))
 app.use(express.urlencoded({ extended: false }));
+mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true}).then(() => { console.log('connected to mongo: ', process.env.MONGO_URI) })
+
+
 
 
 // ROUTES
