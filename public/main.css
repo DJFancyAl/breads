@@ -27,10 +27,12 @@ h1 a {
   font-weight: bold;
   text-decoration: none;
   padding: 1rem;
+  transition: 0.5s;
 }
 
 h1 a:hover {
   color: var(--brown);
+  letter-spacing: 10px;
 }
 
 h2 {
@@ -90,11 +92,12 @@ h5 {
   list-style: square;
   color: var(--darkbrown);
   text-decoration: none;
+  transition: 0.5s;
 }
 
 .bread-list li a:hover {
   color: var(--green);
-  text-decoration: overline;
+  letter-spacing: 3px;
 }
 
 .button-group {
