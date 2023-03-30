@@ -105,6 +105,12 @@ h5 {
   text-align: center;
 }
 
-.submitButton {
-  background-color: var(--darkbrown)!;
+input[type=submit] {
+  background-color: var(--darkbrown);
+  color: var(--tan);
+}
+
+input[type=submit]:hover {
+  background-color: var(--green);
+  color: var(--darkbrown);
 }
