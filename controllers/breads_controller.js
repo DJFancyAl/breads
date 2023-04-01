@@ -46,6 +46,17 @@ breads.get('/data/seed', (req, res) => {
     })
 })
 
+// Update Many
+breads.get('/data/update', (req, res) => {
+  Bread.updateMany({baker: null}, {baker: 'Joey'})
+    .then(updatedBreads => {
+      res.redirect('/breads')
+    })
+    .catch(err => {
+      console.log(err)
+    })
+})
+
 
 // SHOW
 breads.get('/:id', (req, res) => {
