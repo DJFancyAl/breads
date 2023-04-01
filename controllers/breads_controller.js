@@ -52,9 +52,6 @@ breads.get('/data/update', (req, res) => {
     .then(updatedBreads => {
       res.redirect('/breads')
     })
-    .catch(err => {
-      console.log(err)
-    })
 })
 
 
