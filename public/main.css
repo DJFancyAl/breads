@@ -44,6 +44,7 @@ h5 {
   font-size: 1.8rem;
   color: var(--green);
   font-weight: bold;
+  margin-bottom: 0;
 }
 
 .newButton {
@@ -89,7 +90,7 @@ h5 {
 .bread-list {margin: 1.5rem;}
 
 .bread-list li, .bread-list li a {
-  list-style: square;
+  list-style: none;
   color: var(--darkbrown);
   text-decoration: none;
   transition: 0.5s;
@@ -100,9 +101,27 @@ h5 {
   letter-spacing: 3px;
 }
 
+.bread-attribute li {
+  list-style: square;
+}
+
 .button-group {
   margin-top: 1.5rem;
   text-align: center;
+}
+
+.bakers {
+  background-color: var(--green);
+  color: var(--darkbrown);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  border-radius: 1em;
+}
+
+.bakers:hover {
+  color: var(--brown);
+  background-color: var(--darkbrown);
 }
 
 input[type=submit] {

@@ -15,7 +15,10 @@ function Index ({title, breads}) {
                     return (
                         <li key={bread.id}>
                             <a href={`/breads/${bread.id}`}>
-                                {bread.name}
+                                <h5>{bread.name}</h5>
+                                <ul className='bread-attribute'>
+                                    <li>{bread.getBakedBy()}</li>
+                                </ul>
                             </a>
                         </li>
                     )

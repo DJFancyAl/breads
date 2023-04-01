@@ -59,9 +59,13 @@ breads.get('/data/update', (req, res) => {
 breads.get('/:id', (req, res) => {
   Bread.findById(req.params.id)
       .then(foundBread => {
+        Bread.getBakersItems(foundBread.baker).then(items => {
+          const breads = items
           res.render('show', {
-              bread: foundBread
+              bread: foundBread,
+              bakersBreads: breads
           })
+        })
       })
       .catch(err =>{
         res.status(404).render('404')
