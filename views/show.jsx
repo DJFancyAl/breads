@@ -7,6 +7,7 @@ function Show ( {bread} ) {
     <Default title={bread.name + " Details"}>
       <main>
         <h2>{bread.name} Bread</h2>
+        <p>Baked by: {bread.baker}</p>
         <h5>{bread.name} bread 
         {bread.hasGluten ?
         <span> has gluten.</span> :

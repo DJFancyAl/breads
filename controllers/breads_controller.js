@@ -30,8 +30,11 @@ breads.post('/', (req, res) => {
   } else {
     req.body.hasGluten = false
   }
-  Bread.create(req.body).then(() => {
+  Bread.create(req.body).then(createdBread => {
     res.redirect('/breads')
+  })
+  .catch(err => {
+    res.send(`Uh oh! You can't do that! You must select one of the active bakers.`)
   })
 })
 
