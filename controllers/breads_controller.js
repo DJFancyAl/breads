@@ -1,22 +1,32 @@
 const express = require('express')
 const Bread = require('../models/breads')
+const Baker = require('../models/baker')
 const seeds = require('../models/seeds')
 const breads = express.Router()
 
 // INDEX
 breads.get('/', (req, res) => {
-  Bread.find().then(foundBreads => {
-    res.render('index', {
-      title: 'Breads Page',
-      breads: foundBreads
-    })  
+  Baker.find()
+  .then(foundBakers => {
+    Bread.find()
+    .populate('baker')
+    .then(foundBreads => {
+      res.render('index', {
+        title: 'Breads Page',
+        breads: foundBreads,
+        bakers: foundBakers
+      })  
+    })
   })
 })
 
 
 // NEW
 breads.get('/new', (req, res) => {
-  res.render('new')
+  Baker.find()
+  .then(foundBakers => {
+    res.render('new', { bakers: foundBakers })
+  })
 })
 
 
@@ -58,15 +68,17 @@ breads.get('/data/update', (req, res) => {
 // SHOW
 breads.get('/:id', (req, res) => {
   Bread.findById(req.params.id)
+      .populate('baker')
       .then(foundBread => {
-        Bread.getBakersItems(foundBread.baker).then(items => {
-          const breads = items
+        Baker.findById(foundBread.baker)
+        .populate('breads')
+        .then(foundBaker => {
           res.render('show', {
               bread: foundBread,
-              bakersBreads: breads
+              baker: foundBaker
           })
         })
-      })
+        })
       .catch(err =>{
         res.status(404).render('404')
       })
@@ -102,15 +114,19 @@ breads.put('/:id', (req, res) => {
 
 // EDIT
 breads.get('/:id/edit', (req, res) => {
-  Bread.findById(req.params.id)
-      .then(foundBread => {
-          res.render('edit', {
-              bread: foundBread
-          })
-      })
-      .catch(err =>{
-        res.status(404).render('404')
-      })
+  Baker.find()
+  .then(foundBakers => {
+    Bread.findById(req.params.id)
+        .then(foundBread => {
+            res.render('edit', {
+                bread: foundBread,
+                bakers: foundBakers
+            })
+        })
+        .catch(err =>{
+          res.status(404).render('404')
+        })
+  })
 })
 
 

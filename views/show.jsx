@@ -1,14 +1,14 @@
 const React = require('react')
 const Default = require('./layouts/Default')
 
-function Show ( {bread, bakersBreads} ) {
+function Show ( { bread, baker } ) {
 
   return (
     <Default title={bread.name + " Details"}>
       <main>
         <h2>{bread.name} Bread</h2>
         <p>{bread.getBakedBy()}</p>
-        <p>Breads by {bread.baker}: {bakersBreads.map(bakerBread => {
+        <p>Breads by {baker.name}: {baker.breads.map(bakerBread => {
             return <a key={bakerBread.id} href={`/breads/${bakerBread.id}`} className='bakers'>{bakerBread.name}</a>
           })}
         </p>
@@ -18,7 +18,7 @@ function Show ( {bread, bakersBreads} ) {
         <span> does not have gluten.</span>}
         </h5>
         
-        <img src={bread.image} alt={bread.name} onClick={() => { console.log("button clicked");}} />
+        <img src={bread.image} alt={bread.name} id='breadImg' />
 
         <div className='button-group'>
           <a href={`/breads/${bread.id}/edit`}><button className='editButton'>Edit</button></a>
@@ -30,7 +30,6 @@ function Show ( {bread, bakersBreads} ) {
         </div>
         <a href="/breads"><button className='newButton'>Return to Bread List</button></a>
       </main>
-      <audio id='sound' src='/Eating.mp3' />
     </Default>
     )
 }
