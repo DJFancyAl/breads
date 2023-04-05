@@ -1,22 +1,11 @@
 const React = require('react')
 const Default = require('./layouts/Default')
 
-function Index ({title, breads, bakers}) {
+function AllBreads ({title, breads}) {
 
     return (
       <Default title={title}>
-        <h2>Bakers:</h2>
-        <ul className='bread-list'>
-            {bakers.map((baker) => {
-                return (
-                    <li key={baker._id}>
-                        <a href={`/bakers/${baker._id}`}><h5>{baker.name}</h5></a>
-                    </li>
-                )
-            })}
-        </ul>
-
-        <h2>Breads:</h2>
+        <h2>All Breads:</h2>
         <a href="/breads/new"><button className="newButton">Add a new bread</button></a>
         <ul className='bread-list'>
             {
@@ -34,9 +23,9 @@ function Index ({title, breads, bakers}) {
                 })
             }
         </ul>
-        <a href="/breads/all"><button className="newButton">View All Breads</button></a>
+        <a href="/breads/"><button className="newButton">Return to Index</button></a>
       </Default>
     )
 }
 
-module.exports = Index
+module.exports = AllBreads
