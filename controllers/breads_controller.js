@@ -6,19 +6,19 @@ const breads = express.Router()
 
 // INDEX
 breads.get('/', async (req, res) => {
-  res.json({"message": "worked this far"})
-  // try {
-  //   const foundBakers = await Baker.find().lean()
-  //   const foundBreads = await Bread.find().limit(5).populate('baker')
+  try {
+    const foundBakers = await Baker.find()
+    res.json(foundBakers)
+    // const foundBreads = await Bread.find().limit(5).populate('baker')
   
-  //   res.render('index', {
-  //     title: 'Breads Page',
-  //     breads: foundBreads,
-  //     bakers: foundBakers
-  //   })
-  // } catch(err) {
-  //   res.json(err)
-  // }
+    // res.render('index', {
+    //   title: 'Breads Page',
+    //   breads: foundBreads,
+    //   bakers: foundBakers
+    // })
+  } catch(err) {
+    res.json(err)
+  }
 })
 
 
