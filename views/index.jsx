@@ -1,10 +1,10 @@
 const React = require('react')
-// const Default = require('./layouts/Default')
+const Default = require('./layouts/default')
 
 function Index ({title, breads, bakers}) {
 
     return (
-    <>
+      <Default title={title}>
         <h2>Bakers:</h2>
         <ul className='bread-list'>
             {bakers.map((baker) => {
@@ -35,7 +35,7 @@ function Index ({title, breads, bakers}) {
             }
         </ul>
         <a href="/breads/all"><button className="newButton">View All Breads</button></a>
-    </>
+      </Default>
     )
 }
 
