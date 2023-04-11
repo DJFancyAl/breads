@@ -1,5 +1,6 @@
 // Dependencies
 const mongoose = require('mongoose')
+const Bread = require('./breads')
 const { Schema } = mongoose
 
 // Schema
@@ -7,7 +8,7 @@ const bakerSchema = new Schema({
     name: {
         type: String,
         required: true,
-        enum: ['Rachel', 'Monica', 'Joey', 'Chandler', 'Ross', 'Phoebe']
+        enum: ['Rachel', 'Monica', 'Joey', 'Chandler', 'Ross', 'Phoebe'],
     },
     startDate: {
         type: Date,
@@ -26,8 +27,8 @@ bakerSchema.virtual('breads', {
 
 
 // Hooks
-bakerSchema.post('findOneAndDelete', function() {
-    Bread.deleteMany({ baker: this._conditions._id })
+bakerSchema.post('findOneAndDelete', async function() {
+    Bread.deleteMany({ baker: this._conditions._id})
     .then(deleteStatus => {
         console.log(deleteStatus)
     })

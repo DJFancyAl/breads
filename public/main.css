@@ -96,7 +96,7 @@ h5 {
   list-style: none;
   color: var(--darkbrown);
   text-decoration: none;
-  transition: 0.5s;
+  transition: 0.2s;
 }
 
 .bread-list li a:hover {

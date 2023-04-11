@@ -23,12 +23,13 @@ breads.get('/new', async (req, res) => {
   res.render('new', { bakers: foundBakers })
 })
 
+
 // All Breads
 breads.get('/all', async (req, res) => {
   const foundBreads = await Bread.find().populate('baker')
 
   res.render('all', {
-    title: 'Breads Page',
+    title: 'All Breads Page',
     breads: foundBreads,
   })
 })
