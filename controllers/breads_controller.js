@@ -6,14 +6,18 @@ const breads = express.Router()
 
 // INDEX
 breads.get('/', async (req, res) => {
-  const foundBakers = await Baker.find().lean()
-  const foundBreads = await Bread.find().limit(5).populate('baker')
-
-  res.render('index', {
-    title: 'Breads Page',
-    breads: foundBreads,
-    bakers: foundBakers
-  })
+  try {
+    const foundBakers = await Baker.find().lean()
+    const foundBreads = await Bread.find().limit(5).populate('baker')
+  
+    res.render('index', {
+      title: 'Breads Page',
+      breads: foundBreads,
+      bakers: foundBakers
+    })
+  } catch(err) {
+    res.json(err)
+  }
 })
 
 
